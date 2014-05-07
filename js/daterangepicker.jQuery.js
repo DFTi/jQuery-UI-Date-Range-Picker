@@ -54,6 +54,7 @@
 		dateFormat: 'm/d/yy', // date formatting. Available formats: http://docs.jquery.com/UI/Datepicker/%24.datepicker.formatDate
 		closeOnSelect: true, //if a complete selection is made, close the menu
 		arrows: false,
+		above: false, // show the dropdown above instead of below
 		appendTo: 'body',
 		onClose: function(){},
 		onOpen: function(){},
@@ -211,7 +212,11 @@
 				side = 'right', val =  offRight;
 			}
 
-			rp.parent().css(side, val).css('top', riOffset.top + relEl.outerHeight());
+      if (options.above) {
+        rp.parent().css(side, val).css('top', '-0.5em');
+      } else {
+        rp.parent().css(side, val).css('top', riOffset.top + relEl.outerHeight());
+      }
 		}
 
 
